@@ -7,8 +7,10 @@ from ethereumetl.utils import split_to_batches
 # Note that there is a limit in Data Pipeline on the number of objects, which can be
 # increased in the Support Center
 # https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-limits.html
-EXPORT_PARTITIONS = [(start, end) for start, end in split_to_batches(9000000, 9999999, 1000)] + \
-                    [(start, end) for start, end in split_to_batches(10000000, 10999999, 1000)] 
+EXPORT_PARTITIONS = [(start, end) for start, end in split_to_batches(8000000, 8999999, 1000)] + \
+                    [(start, end) for start, end in split_to_batches(9000000, 9999999, 1000)]
+                    #+ \
+                   # [(start, end) for start, end in split_to_batches(10000000, 10999999, 1000)] 
 
 
 DEFAULT_BUCKET = "example.com"
